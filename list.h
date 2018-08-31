@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "node.h"
-#include "iterator.h"
 
 using namespace std;
 
@@ -17,7 +16,7 @@ private:
 
 public:
 
-    int nodes;
+    int nodes; // Nunca se inicializa
 
     List()
     {
@@ -27,12 +26,12 @@ public:
 
     T front()
     {
-        return head -> data;
+        return head -> data; // No se controla el caso de lista vacía
     };
 
     T back()
     {
-        return tail -> data;
+        return tail -> data; // No se controla el caso de lista vacía
     };
 
     void push_front(T value){
@@ -78,11 +77,11 @@ public:
         }
         else if(nodes==1)
         {
-            delete head;
+            delete head; // Falta igualar a NULL
         }
         else
         {
-            head = temp->next;
+            head = temp->next; 
             delete temp;
         }
         nodes --;
@@ -133,10 +132,10 @@ public:
 
     };
 
-    void concat(List<T> &other);
-    bool empty();
-    int size();
-
+    void concat(List<T> &other); // No implementó
+    bool empty(); // No implementó
+    int size(); // No implementó
+ 
     void print()
     {
         Node<T>* temp = head;
@@ -148,11 +147,9 @@ public:
         cout << temp->data;
     };
 
-    void print_reverse();
-    void clear();
-    Iterator<T> begin();
-    Iterator<T> end();
+    void print_reverse();// No implementó
+    void clear(); // No implementó
 
-    ~List();
+    ~List(); // No se implementó ni comentó, no va a compilar
 };
 #endif
